@@ -1,5 +1,6 @@
+
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
   Calendar,
@@ -9,6 +10,8 @@ import {
   Users,
   Menu,
   X,
+  Briefcase,
+  LogIn
 } from "lucide-react";
 
 type SidebarProps = {
@@ -17,12 +20,15 @@ type SidebarProps = {
 };
 
 const Sidebar = ({ collapsed, toggleSidebar }: SidebarProps) => {
+  const location = useLocation();
   const navItems = [
     { name: "Dashboard", icon: <Home className="h-5 w-5" />, path: "/" },
     { name: "Patients", icon: <Users className="h-5 w-5" />, path: "/patients" },
-    { name: "Prescriptions", icon: <FileText className="h-5 w-5" />, path: "/prescriptions" },
+    { name: "Medical History", icon: <FileText className="h-5 w-5" />, path: "/medical-history" },
     { name: "Medications", icon: <Pill className="h-5 w-5" />, path: "/medications" },
     { name: "Appointments", icon: <Calendar className="h-5 w-5" />, path: "/appointments" },
+    { name: "Careers", icon: <Briefcase className="h-5 w-5" />, path: "/careers" },
+    { name: "Login / Register", icon: <LogIn className="h-5 w-5" />, path: "/auth" },
   ];
 
   return (
@@ -50,7 +56,11 @@ const Sidebar = ({ collapsed, toggleSidebar }: SidebarProps) => {
           <Link
             key={item.name}
             to={item.path}
-            className="flex items-center px-4 py-3 mb-2 text-gray-700 hover:bg-medical-light hover:text-medical-primary rounded-md transition-all"
+            className={`flex items-center px-4 py-3 mb-2 rounded-md transition-all ${
+              location.pathname === item.path
+                ? "bg-medical-light text-medical-primary font-medium"
+                : "text-gray-700 hover:bg-medical-light hover:text-medical-primary"
+            }`}
           >
             <span className="mr-3">{item.icon}</span>
             {!collapsed && <span>{item.name}</span>}
