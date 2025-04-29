@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -6,7 +5,7 @@ import {
   Calendar,
   FileText,
   Home,
-  MedicinePill,
+  Pill,
   Users,
   Menu,
   X,
@@ -22,7 +21,7 @@ const Sidebar = ({ collapsed, toggleSidebar }: SidebarProps) => {
     { name: "Dashboard", icon: <Home className="h-5 w-5" />, path: "/" },
     { name: "Patients", icon: <Users className="h-5 w-5" />, path: "/patients" },
     { name: "Prescriptions", icon: <FileText className="h-5 w-5" />, path: "/prescriptions" },
-    { name: "Medications", icon: <MedicinePill className="h-5 w-5" />, path: "/medications" },
+    { name: "Medications", icon: <Pill className="h-5 w-5" />, path: "/medications" },
     { name: "Appointments", icon: <Calendar className="h-5 w-5" />, path: "/appointments" },
   ];
 

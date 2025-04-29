@@ -1,11 +1,10 @@
-
 import React from "react";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import StatsCard from "@/components/dashboard/StatsCard";
 import PatientsList from "@/components/dashboard/PatientsList";
 import AppointmentsCard from "@/components/dashboard/AppointmentsCard";
 import PrescriptionQuickForm from "@/components/dashboard/PrescriptionQuickForm";
-import { Calendar, FileText, MedicinePill, Users } from "lucide-react";
+import { Calendar, FileText, Pill, Users } from "lucide-react";
 
 const Index = () => {
   return (
@@ -47,7 +46,7 @@ const Index = () => {
           <StatsCard
             title="Medications"
             value="124"
-            icon={<MedicinePill className="h-5 w-5" />}
+            icon={<Pill className="h-5 w-5" />}
             description="32 need renewal"
             className="bg-gradient-to-br from-white to-orange-50 border-orange-100"
           />
